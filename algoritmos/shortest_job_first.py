@@ -1,13 +1,13 @@
-def shortest_job_first(processes):
-    time = 0
-    processes.sort(key=lambda x: (x.arrival_time, x.burst_time))  # Ordena por tempo de chegada e burst
-    for process in processes:
-        if time < process.arrival_time:
-            time = process.arrival_time  # Espera até o processo chegar
-        time += process.burst_time
-        process.turnaround_time = time - process.arrival_time
-        process.waiting_time = process.turnaround_time - process.burst_time
+def shortest_job_first(processes, burst_times):
+    n = len(processes)
+    sorted_indices = sorted(range(n), key=lambda i: burst_times[i])
+    waiting_times = [0] * n
+    turnaround_times = [0] * n
+    elapsed_time = 0
 
-    avg_waiting_time = sum(p.waiting_time for p in processes) / len(processes)
-    avg_turnaround_time = sum(p.turnaround_time for p in processes) / len(processes)
-    return avg_waiting_time, avg_turnaround_time
+    for i in sorted_indices:
+        waiting_times[i] = elapsed_time
+        elapsed_time += burst_times[i]
+        turnaround_times[i] = elapsed_time
+
+    return waiting_times, turnaround_times

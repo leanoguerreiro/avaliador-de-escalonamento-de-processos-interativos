@@ -1,17 +1,27 @@
-def round_robin(processes, quantum):
+def round_robin(processes, burst_times, quantum):
+    n = len(processes)
+    remaining_times = list(burst_times)
+    waiting_times = [0] * n
+    turnaround_times = [0] * n
     time = 0
-    queue = processes[:]
-    while queue:
-        process = queue.pop(0)
-        if process.remaining_time > quantum:
-            time += quantum
-            process.remaining_time -= quantum
-            queue.append(process)
-        else:
-            time += process.remaining_time
-            process.turnaround_time = time - process.arrival_time
-            process.waiting_time = process.turnaround_time - process.burst_time
 
-    avg_waiting_time = sum(p.waiting_time for p in processes) / len(processes)
-    avg_turnaround_time = sum(p.turnaround_time for p in processes) / len(processes)
-    return avg_waiting_time, avg_turnaround_time
+    while True:
+        done = True
+        for i in range(n):
+            if remaining_times[i] > 0:
+                done = False
+                if remaining_times[i] > quantum:
+                    time += quantum
+                    remaining_times[i] -= quantum
+                else:
+                    time += remaining_times[i]
+                    waiting_times[i] = time - burst_times[i]
+                    remaining_times[i] = 0
+
+        if done:
+            break
+
+    for i in range(n):
+        turnaround_times[i] = burst_times[i] + waiting_times[i]
+
+    return waiting_times, turnaround_times

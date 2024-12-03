@@ -1,45 +1,80 @@
+import numpy as np
+import plotly.graph_objects as go
 from algoritmos.round_robin import round_robin
 from algoritmos.shortest_job_first import shortest_job_first
 from algoritmos.multilevel_queue import multilevel_queue
-from utils.process_generator import generate_processes
+from utils.data_generator import gerar_processos, gerar_burst_times, gerar_prioridades, gerar_quantum
 
-def main():
-    num_processes = 10
-    
-    # Gerar processos aleatórios.
-    processes = generate_processes(num_processes)
+# Gerar dados aleatórios para os processos
+num_processos = 150000
+processos = gerar_processos(num_processos)
+burst_times = gerar_burst_times(num_processos)
+prioridades = gerar_prioridades(num_processos)
+quantum = gerar_quantum()
 
-    # Avaliar cada algoritmo com os processos gerados.
-    rr_results = round_robin(processes[:], quantum=4)
-    sjf_results = shortest_job_first(processes[:])
-    mlq_results = multilevel_queue(processes[:])
+# Executar algoritmos de escalonamento com os dados gerados
+wt_rr, tat_rr = round_robin(processos, burst_times, quantum)
+wt_sjf, tat_sjf = shortest_job_first(processos, burst_times)
+wt_mlq, tat_mlq = multilevel_queue(processos, burst_times, prioridades)
 
-    # Exibir resultados.
-    print(f"Round Robin Results: {rr_results}")
-    print(f"SJF Results: {sjf_results}")
-    print(f"MLQ Results: {mlq_results}")
+# Calcular métricas de desempenho
+metrics = {
+    'Algoritmo': ['RR', 'SJF', 'MLQ'],
+    'Tempo de Espera Médio': [
+        np.mean(wt_rr), 
+        np.mean(wt_sjf), 
+        np.mean(wt_mlq)
+    ],
+    'Tempo de Turnaround Médio': [
+        np.mean(tat_rr), 
+        np.mean(tat_sjf), 
+        np.mean(tat_mlq)
+    ],
+    'Throughput': [
+        len(processos) / sum(tat_rr),
+        len(processos) / sum(tat_sjf),
+        len(processos) / sum(tat_mlq)
+    ]
+}
 
-if __name__ == "__main__":
-    main()
+# Criar gráficos usando Plotly
+fig_means = go.Figure()
+fig_means.add_trace(go.Bar(
+    name='Tempo de Espera Médio',
+    x=metrics['Algoritmo'],
+    y=metrics['Tempo de Espera Médio'],
+    marker_color=['red', 'green', 'blue']
+))
+fig_means.update_layout(
+    title='Tempo de Espera Médio por Algoritmo',
+    yaxis_title='Tempo de Espera Médio (ms)'
+)
 
-    # Execute testes com diferentes números e configurações de processos
-  
-    for i in range(5):
-        print(f"\n=== Test Run {i+1} ===")
-        
-        # Gerar processos aleatórios
-        processes = generate_processes(10)
-        
-        # Exibir processos gerados
-        print("\nGenerated Processes:")
-        for process in processes:
-            print(f"Process(pid={process.pid}, arrival={process.arrival_time}, burst={process.burst_time}, priority={process.priority})")
-        
-        # Executar algoritmo Multilevel Queue
-        avg_waiting_time, avg_turnaround_time = multilevel_queue(processes)
-        
-        # Exibir resultados do teste
-        print(f"\nResults for Test Run {i+1}:")
-        print(f"Average Waiting Time: {avg_waiting_time:.2f}")
-        print(f"Average Turnaround Time: {avg_turnaround_time:.2f}")
+fig_turnaround = go.Figure()
+fig_turnaround.add_trace(go.Bar(
+    name='Tempo de Turnaround Médio',
+    x=metrics['Algoritmo'],
+    y=metrics['Tempo de Turnaround Médio'],
+    marker_color=['red', 'green', 'blue']
+))
+fig_turnaround.update_layout(
+    title='Tempo de Turnaround Médio por Algoritmo',
+    yaxis_title='Tempo de Turnaround Médio (ms)'
+)
 
+fig_throughput = go.Figure()
+fig_throughput.add_trace(go.Bar(
+    name='Throughput',
+    x=metrics['Algoritmo'],
+    y=metrics['Throughput'],
+    marker_color=['red', 'green', 'blue']
+))
+fig_throughput.update_layout(
+    title='Throughput por Algoritmo',
+    yaxis_title='Throughput (processos/ms)'
+)
+
+# Mostrar gráficos Plotly
+fig_means.show()
+fig_turnaround.show()
+fig_throughput.show()
