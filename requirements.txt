@@ -1,1 +1,2 @@
-matplotlib==3.5.1  # Se você planeja usar gráficos para visualização dos resultados.
+]numpy
+plotly
