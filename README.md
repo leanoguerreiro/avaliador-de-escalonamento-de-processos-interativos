@@ -40,5 +40,5 @@ Estas dependências estão listadas no arquivo `requirements.txt`.
 
 1. **Clone o Repositório:**
    ```bash
-   [git clone https://github.com/seu-usuario/seu-repositorio.git](https://github.com/leanoguerreiro/avaliador-de-escalonamento-de-processos-interativos.git)
+   https://github.com/leanoguerreiro/avaliador-de-escalonamento-de-processos-interativos.git
    cd avaliador-de-escalonamento-de-processos-interativos
