@@ -40,5 +40,18 @@ Estas dependências estão listadas no arquivo `requirements.txt`.
 
 1. **Clone o Repositório:**
    ```bash
-   https://github.com/leanoguerreiro/avaliador-de-escalonamento-de-processos-interativos.git
+   git clone https://github.com/leanoguerreiro/avaliador-de-escalonamento-de-processos-interativos.git
    cd avaliador-de-escalonamento-de-processos-interativos
+2. **Crie um Ambiente Virtual(opicional, mas recomendado):**
+   ```bash
+   python -m venv myenv
+   source myenv/bin/activate  # No Windows use: myenv\Scripts\activate
+3. **Intalando as Dependências:**
+   ```bash
+   pip install -r requirements.txt
+
+## Uso
+
+Para executar o projeto, execute o script principal:
+```bash
+python3 main.py #ou apenas python ao invez de python3 no windows 
