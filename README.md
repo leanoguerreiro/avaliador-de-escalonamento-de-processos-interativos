@@ -13,21 +13,61 @@ Este projeto implementa um avaliador para algoritmos de escalonamento de process
 
 ## Avaliação dos Algoritmos
 
-A avaliação dos algoritmos de escalonamento é feita através do cálculo de três métricas principais de desempenho:
-
 1. **Tempo de Espera Médio**
-   - **Definição:** Média do tempo que cada processo passa na fila de prontos antes de começar a ser executado.
-   - **Uso:** Ajuda a avaliar quanto tempo, em média, os processos estão esperando antes de serem atendidos pela CPU. Menores tempos indicam melhor desempenho em termos de responsividade.
+   - **Descrição:** Média do tempo que cada processo passa na fila de prontos antes de começar a ser executado.
+   - **Uso:** Mede a responsividade do sistema. Menores tempos indicam maior eficiência.
+   - **Eixo X:** Algoritmos (Round Robin, SJF, MLQ).
+   - **Eixo Y:** Tempo de Espera Médio (em milissegundos).
 
 2. **Tempo de Turnaround Médio**
-   - **Definição:** Média do tempo total desde a submissão de um processo até sua conclusão.
-   - **Uso:** Indica a eficiência geral do sistema em processar tarefas. Um menor tempo de turnaround médio sugere que o sistema está processando as tarefas rapidamente.
+   - **Descrição:** Média do tempo total desde a submissão de um processo até sua conclusão.
+   - **Uso:** Mede a eficiência geral do sistema em processar tarefas. Menores tempos indicam maior eficiência.
+   - **Eixo X:** Algoritmos (Round Robin, SJF, MLQ).
+   - **Eixo Y:** Tempo de Turnaround Médio (em milissegundos).
 
 3. **Throughput**
-   - **Definição:** Número de processos concluídos por unidade de tempo.
-   - **Uso:** Mostra a capacidade do sistema em lidar com cargas de trabalho. Um maior throughput indica que mais processos estão sendo completados em menos tempo.
+   - **Descrição:** Número de processos concluídos por unidade de tempo.
+   - **Uso:** Mede a capacidade do sistema em lidar com cargas de trabalho. Maiores valores indicam maior eficiência.
+   - **Eixo X:** Algoritmos (Round Robin, SJF, MLQ).
+   - **Eixo Y:** Throughput (processos por milissegundo).
 
-  ## Avaliação do Grau de Complexidade dos Algoritmos
+### Visualização dos Gráficos
+
+Os gráficos gerados permitem uma comparação clara entre os algoritmos com base nas métricas avaliadas:
+
+#### 1. Gráfico do Tempo de Espera Médio
+- Mostra o tempo médio que os processos aguardam antes de serem executados.
+- Ajuda a identificar qual algoritmo é mais eficiente em reduzir o tempo de espera.
+
+#### 2. Gráfico do Tempo de Turnaround Médio
+- Mostra o tempo médio total que os processos levam desde a submissão até a conclusão.
+- Permite avaliar a eficiência global do sistema.
+
+#### 3. Gráfico do Throughput
+- Mostra quantos processos são concluídos por unidade de tempo.
+- Indica qual algoritmo é mais eficiente em lidar com cargas maiores.
+
+### Resultado Esperado
+
+Após executar o projeto, você verá três gráficos interativos:
+
+1. **Gráfico do Tempo de Espera Médio:**
+   - Compara os algoritmos em termos do tempo médio que os processos esperam na fila.
+
+2. **Gráfico do Tempo de Turnaround Médio:**
+   - Compara os algoritmos em termos do tempo total médio necessário para processar os processos.
+
+3. **Gráfico do Throughput:**
+   - Compara os algoritmos em termos da quantidade média de processos concluídos por unidade de tempo.
+
+Esses gráficos ajudam a identificar qual algoritmo é mais adequado para diferentes cenários operacionais e permitem uma análise visual clara das diferenças entre eles.
+
+### Observações
+
+- As métricas são calculadas com base nos tempos simulados para cada processo gerado aleatoriamente.
+- Os gráficos são gerados com Plotly, permitindo interatividade e visualizações dinâmicas.
+
+## Avaliação do Grau de Complexidade dos Algoritmos
 
 Além das métricas de desempenho (tempo de espera médio, tempo de turnaround médio e throughput), os algoritmos também são avaliados em relação à sua **complexidade computacional** e **facilidade de implementação**.
 
