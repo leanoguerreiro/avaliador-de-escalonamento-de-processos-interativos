@@ -3,8 +3,8 @@ import plotly.graph_objects as go
 from algoritmos.round_robin import round_robin
 from algoritmos.shortest_job_first import shortest_job_first
 from algoritmos.multilevel_queue import multilevel_queue
-from utils.data_generator import gerar_processos, gerar_burst_times, gerar_prioridades, gerar_quantum
-from utils.analisys_complexity import gerar_graficos_complexidade
+from utils.gerador_de_dados import gerar_processos, gerar_burst_times, gerar_prioridades, gerar_quantum
+from utils.graficos_complexidade import gerar_graficos_complexidade
 
 # Gerar dados aleatórios para os processos
 num_processos = 150000
