@@ -4,12 +4,32 @@ Este projeto implementa um avaliador para algoritmos de escalonamento de process
 
 ## Estrutura do Projeto
 
-- `main.py`: Arquivo principal que coordena a execução do projeto. Gera dados aleatórios, executa os algoritmos de escalonamento e exibe gráficos.
-- `round_robin.py`: Implementação do algoritmo Round Robin.
-- `shortest_job_first.py`: Implementação do algoritmo Shortest Job First.
-- `multilevel_queue.py`: Implementação do algoritmo Múltiplas Filas.
-- `data_generator.py`: Funções para gerar dados aleatórios, como processos, tempos de burst, prioridades e quantum.
-- `requirements.txt`: Lista das dependências necessárias para executar o projeto.
+O projeto está organizado em diretórios e arquivos que separam as implementações dos algoritmos, utilitários e arquivos principais. Abaixo está a descrição detalhada da estrutura:
+
+
+### **Diretórios e Arquivos**
+
+#### **algoritmos/**
+Contém as implementações dos algoritmos de escalonamento de processos.
+
+- `__init__.py`: Arquivo para inicializar o pacote Python.
+- `multilevel_queue.py`: Implementação do algoritmo de Múltiplas Filas (MLQ).
+- `round_robin.py`: Implementação do algoritmo Round Robin (RR).
+- `shortest_job_first.py`: Implementação do algoritmo Shortest Job First (SJF).
+
+#### **utils/**
+Contém utilitários para geração de dados aleatórios e criação de gráficos.
+
+- `__init__.py`: Arquivo para inicializar o pacote Python.
+- `gerador_de_dados.py`: Funções para geração de dados aleatórios, como processos, tempos de burst, prioridades e quantum.
+- `graficos_complexidade.py`: Funções para gerar gráficos relacionados à complexidade dos algoritmos.
+
+#### Arquivos na raiz:
+
+- **`main.py`**: Script principal que coordena a execução do projeto. Ele gera dados aleatórios, executa os algoritmos e exibe os gráficos.
+- **`Process.py`**: Contém a definição da classe `Process`, que representa os processos simulados no projeto.
+- **`requirements.txt`**: Lista das dependências necessárias para executar o projeto.
+
 
 ## Avaliação dos Algoritmos
 
