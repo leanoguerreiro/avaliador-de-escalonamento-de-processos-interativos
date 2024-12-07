@@ -2,10 +2,13 @@
 
 Este projeto implementa um avaliador para algoritmos de escalonamento de processos interativos. Ele inclui a implementação de três algoritmos clássicos de escalonamento: Round Robin (RR), Shortest Job First (SJF) e Múltiplas Filas (MLQ). O projeto também gera dados aleatórios para simular processos e utiliza gráficos interativos para visualizar o desempenho dos algoritmos.
 
+---
+
 ## Estrutura do Projeto
 
 O projeto está organizado em diretórios e arquivos que separam as implementações dos algoritmos, utilitários e arquivos principais. Abaixo está a descrição detalhada da estrutura:
 
+---
 
 ### **Diretórios e Arquivos**
 
@@ -30,6 +33,7 @@ Contém utilitários para geração de dados aleatórios e criação de gráfico
 - **`Process.py`**: Contém a definição da classe `Process`, que representa os processos simulados no projeto.
 - **`requirements.txt`**: Lista das dependências necessárias para executar o projeto.
 
+---
 
 ## Avaliação dos Algoritmos
 
@@ -50,6 +54,8 @@ Contém utilitários para geração de dados aleatórios e criação de gráfico
    - **Uso:** Mede a capacidade do sistema em lidar com cargas de trabalho. Maiores valores indicam maior eficiência.
    - **Eixo X:** Algoritmos (Round Robin, SJF, MLQ).
    - **Eixo Y:** Throughput (processos por milissegundo).
+
+---
 
 ### Visualização dos Gráficos
 
@@ -86,6 +92,8 @@ Esses gráficos ajudam a identificar qual algoritmo é mais adequado para difere
 
 - As métricas são calculadas com base nos tempos simulados para cada processo gerado aleatoriamente.
 - Os gráficos são gerados com Plotly, permitindo interatividade e visualizações dinâmicas.
+
+---
 
 ## Avaliação do Grau de Complexidade dos Algoritmos
 
@@ -126,6 +134,7 @@ Além das métricas de desempenho (tempo de espera médio, tempo de turnaround m
 | **Shortest Job First** | \(O(n \log n)\)     | Moderada                      | Requer conhecimento prévio dos tempos; risco de inanição para processos longos. |
 | **Múltiplas Filas** | \(O(m \cdot n)\)      | Alta                          | Flexível, mas complexo; ideal para sistemas com diferentes prioridades.        |
 
+---
 
 ### Visualização dos Resultados
 
@@ -160,11 +169,11 @@ Esses gráficos ajudam a entender as diferenças nos graus de complexidade dos a
 - A escala arbitrária usada nos gráficos é apenas para fins comparativos e pode ser ajustada conforme necessário.
 - Os gráficos são gerados com a biblioteca Plotly, que permite interatividade e visualizações dinâmicas.
 
+---
+
 ## Análise dos Resultados dos Gráficos
 
 Os gráficos gerados neste projeto apresentam uma análise comparativa entre os algoritmos de escalonamento (Round Robin, Shortest Job First e Múltiplas Filas) com base em métricas de desempenho e complexidade. A seguir, são descritos os principais resultados e suas implicações.
-
----
 
 ### **Gráficos de Desempenho**
 
@@ -243,6 +252,46 @@ Os gráficos gerados neste projeto apresentam uma análise comparativa entre os 
 Os gráficos fornecem uma visão clara das diferenças entre os algoritmos em termos de desempenho e complexidade, auxiliando na escolha do algoritmo mais adequado para diferentes cenários operacionais.
 
 ---
+
+## Referências
+
+1. **SILBERSCHATZ, A.; GALVIN, P. B.; GAGNE, G.**  
+   *Operating System Concepts*. 9ª Edição. Wiley, 2012.
+
+2. **TANENBAUM, A. S.; BOS, H.**  
+   *Modern Operating Systems*. 4ª Edição. Pearson, 2014.
+
+3. **ZANCANELLA, L. C.**  
+   *Estrutura Reflexiva para Sistemas Operacionais Multiprocessados*.  
+   Tese de Doutorado em Ciência da Computação, Universidade Federal de Santa Catarina (UFSC), 1997.  
+   Disponível em: [https://repositorio.ufsc.br/bitstream/handle/123456789/82328/197383.pdf](https://repositorio.ufsc.br/bitstream/handle/123456789/82328/197383.pdf).  
+   Acesso em: 07 dez. 2024.
+
+4. **VERSA, P. V.**  
+   *Classificação Automática de Processos em Sistemas Operacionais*.  
+   Dissertação de Mestrado, Pontifícia Universidade Católica do Paraná (PUCPR), 2011.  
+   Disponível em: [https://www.ppgia.pucpr.br/pt/arquivos/mestrado/dissertacoes/2011/priscila_vriesman_versaofinal.pdf](https://www.ppgia.pucpr.br/pt/arquivos/mestrado/dissertacoes/2011/priscila_vriesman_versaofinal.pdf).  
+   Acesso em: 07 dez. 2024.
+
+5. **ALVES, D. S.**  
+   *Estudo Computacional de Métodos para Escalonamento de Processos*.  
+   Trabalho de Conclusão de Curso (TCC), Instituto Federal de Minas Gerais (IFMG), 2018.  
+   Disponível em: [https://www.formiga.ifmg.edu.br/documents/2018/Biblioteca/TCCs_e_Artigos/Danilo_da_Silva_Alves.pdf](https://www.formiga.ifmg.edu.br/documents/2018/Biblioteca/TCCs_e_Artigos/Danilo_da_Silva_Alves.pdf).  
+   Acesso em: 07 dez. 2024.
+
+6. **SOUZA, M. A.; SANTANA, R. H. C.; MASIERO, P. C.; DANTAS, M. A. R.**  
+   *Uma Abordagem para a Avaliação do Escalonamento de Processos em Sistemas Distribuídos Baseada em Monitoração*.  
+   Tese de Doutorado em Ciências da Computação e Matemática Computacional, Instituto de Ciências Matemáticas e de Computação (ICMC-USP), Universidade de São Paulo (USP), São Carlos, 2004.  
+   Disponível em: [https://www.teses.usp.br/teses/disponiveis/55/55134/tde-05012018-103739/publico/MarcioAugustodeSouza.pdf](https://www.teses.usp.br/teses/disponiveis/55/55134/tde-05012018-103739/publico/MarcioAugustodeSouza.pdf).  
+   Acesso em: 07 dez. 2024.
+
+7. **CLAUDIO, C.; OLIVEIRA, A.; SILVA, J.; et al.**  
+   *Introdução aos Sistemas Operacionais*. Universidade Federal de Uberlândia (UFU), Faculdade de Computação (FACOM).  
+   Disponível em: [https://www.facom.ufu.br/~claudio/Cursos/sogi/Artigos/EscalonaProcesso.pdf](https://www.facom.ufu.br/~claudio/Cursos/sogi/Artigos/EscalonaProcesso.pdf).  
+   Acesso em: 07 dez. 2024.
+
+8. **MACHADO, R.; AJMANI, S.; BASHIR, F.; BEHERA, L.; et al.**  
+   *Estudo Comparativo dos Algoritmos FCFS, RR e SJF com Métodos Fuzzy*. Artigo Acadêmico sobre Escalonamento e Simulação de Sistemas Operacionais.
 
 
 ## Dependências
